@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+// STYLE
 import './App.css';
 
+// HOOKS
+import { useState, useEffect } from 'react';
+
+// COMPONENTS
+import Quote from './Quote';
+
 function App() {
+  const [quotes, setQuotes] = useState([]);
+  const init = {
+    method: 'GET',
+    headers: new Headers({ 'Content-type': 'application/json',}),
+    mode: 'no-cors'
+  };
+
+  useEffect(() => {
+    fetch('https://zenquotes.io/api/quotes', init)
+      .then((response) => response.json())
+      .then((jsonResponse) => setQuotes(jsonResponse));
+  }, []);
+
+  console.log(quotes);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Quote />
     </div>
   );
 }

@@ -1,0 +1,23 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 6rem 0;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}

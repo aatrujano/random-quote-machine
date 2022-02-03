@@ -1,0 +1,36 @@
+.quoteContainer {
+    background-color: #FFF;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 5px;
+    padding: 2.5rem 3.5rem;
+}
+
+.quote {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.author {
+    margin-bottom: 2rem;
+    text-align: end;
+}
+
+.ctaContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tumblr {
+    margin-right: auto;
+    margin-left: .5rem;
+}
+
+.button {
+    border-radius: 5px;
+    padding: 0.6rem 1rem;
+    background-color: red;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+}
