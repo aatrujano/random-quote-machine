@@ -8,24 +8,32 @@ import { useState, useEffect } from 'react';
 import Quote from './Quote';
 
 function App() {
-  const [quotes, setQuotes] = useState([]);
-  const init = {
-    method: 'GET',
-    headers: new Headers({ 'Content-type': 'application/json',}),
-    mode: 'no-cors'
-  };
+  const [allQuotes, setAllQuotes] = useState([]);
+  const [currentQuote, setCurrentQuote] = useState(null);
+  
 
   useEffect(() => {
-    fetch('https://zenquotes.io/api/quotes', init)
+    fetch('https://type.fit/api/quotes')
       .then((response) => response.json())
-      .then((jsonResponse) => setQuotes(jsonResponse));
+      .then((jsonResponse) => {
+        setAllQuotes(jsonResponse);
+        setCurrentQuote(jsonResponse[0]);
+      });
   }, []);
 
-  console.log(quotes);
+  const getQuote = () => {
+    const randomIndex = Math.floor(Math.random() * allQuotes.length);
+    const newQuote = allQuotes[randomIndex];
+    setCurrentQuote(newQuote);
+  };
 
   return (
     <div className='App'>
-      <Quote />
+      <Quote
+        allQuotes={allQuotes}
+        currentQuote={currentQuote}
+        getQuote={getQuote}
+      />
     </div>
   );
 }

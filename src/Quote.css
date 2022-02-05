@@ -1,9 +1,21 @@
-.quoteContainer {
-    background-color: #FFF;
+.container {
+    background-color: rgb(0, 0, 0);
     max-width: 600px;
+    height: 320px;
     margin: auto;
     border-radius: 5px;
     padding: 2.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.currentQuoteContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+    color: #b1b1b1;
 }
 
 .quote {
@@ -29,8 +41,19 @@
 .button {
     border-radius: 5px;
     padding: 0.6rem 1rem;
-    background-color: red;
     color: #FFF;
     border: none;
     cursor: pointer;
+}
+
+.twitter{
+    background-color: #0000ff80;
+}
+
+.tumblr{
+    background-color: #99cd3299;
+}
+
+.getNewQuote{
+    background-color: #520052b3;
 }

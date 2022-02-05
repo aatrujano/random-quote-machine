@@ -1,18 +1,32 @@
 // STYLE
-import './Quote.css'
+import './Quote.css';
 
-const Quote = (props) => {
-    return(
-        <div className='quoteContainer'>
-            <h2 className='quote'><span>"</span>Quote<span>"</span></h2>
-            <p className='author'>- Authors Name</p>
-            <div className='ctaContainer'>
-                <button className='button b1 twitter'>twitter</button>
-                <button className='button b1 tumblr'>tumblr</button>
-                <button className='button b2 getNewQuote'>New quote</button>
-            </div>
-        </div>
-    )
-}
+const Quote = ({ allQuotes, currentQuote, getQuote }) => {
+  return (
+    <div id='quote-box' className='container'>
+     <div className='currentQuoteContainer'>
+          {currentQuote && (
+            <h2 id='text' className='quote'>
+              <span>"</span>
+              {currentQuote.text}
+              <span>"</span>
+            </h2>
+          )}
+          {currentQuote && (
+            <p id='author' className='author'>
+              - {currentQuote.author ? currentQuote.author : 'Anonymous'}
+            </p>
+          )}
+     </div>
+      <div className='ctaContainer'>
+        <a href='twitter.com/intent/tweet' id='tweet-quote' className='button b1 twitter'>twitter</a>
+        <button className='button b1 tumblr'>tumblr</button>
+        <button id='new-quote' className='button b2 getNewQuote' onClick={getQuote}>
+          New quote
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Quote;
